@@ -1,0 +1,41 @@
+프로젝트 생성
+- Name: "team"
+- Language: Java
+- Type: Gradle - Groovy
+- Group: "com.test"
+- Artifact: "team"
+- Package name: "com.test.team"
+- Java: 17
+- Packaging: jar
+- Dependencies:
+	- Spring Web
+	- Lombok
+	- Oracle Driver
+	- Thymeleaf
+	- Spring Boot DevTools
+	- Spring Data JPA
+
+
+build.gradle
+- DB 주석
+
+application.yml
+
+
+파일 생성하기
+- "com.test.team.controller" > "MainController.java"
+- templates > "index.html"
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
