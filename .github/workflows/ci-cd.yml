@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
     
     steps:
@@ -43,8 +43,8 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/team:latest
-
-  deploy:
+        
+  deploy-to-ec2:
     needs: build-and-deploy
     runs-on: ubuntu-latest
 
@@ -55,11 +55,11 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }} # EC2 퍼블릭 IP
           username: ${{ secrets.EC2_USER }} # EC2 계정 > ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }} # EC2 계쩡 > *.pem
+          key: ${{ secrets.EC2_SSH_KEY }} # EC2 계정 > *.pem
           script: |
-            
-            # 이제부터 행동은 EC2에서 실행된다.
           
+            # 이제부터 행동은 EC2에서 실행된다.
+            
             # 기존 컨테이너 중지 및 삭제
             sudo docker stop myapp || true
             sudo docker rm myapp || true
@@ -75,3 +75,10 @@ jobs:
 
             # 안 쓰는 이미지 정리
             sudo docker image prune -f
+        
+        
+        
+        
+        
+        
+        
