@@ -32,6 +32,27 @@ application.yml
 
 
 
+CI/CD 진행 시
+- 보안 상 노출되면 안되는 정보 관리하기
+- 개발 > push > 깃헙 > ci-cd.yml 실행 > docker-compose.yml 실행 > application.yml 실행
+
+ci-cd.yml
+- 깃헙 액션
+- 깃헙이 실행 > secrets.환경 변수 접근 가능
+
+docker-compose.yml
+- 도커 컴포즈
+- EC2 환경에서 실행 > secrets.환경 변수 인식 불가능
+
+- "DB_URL" > "jdbc:oracle:thin:@oracle:1521/XEPDB1"
+- "DB_USERNAME" > "springboot"
+- "DB_PASSWORD" > "java1234"
+
+application.yml
+- 스프링 부트 환경 설정
+
+
+
 
 
 
